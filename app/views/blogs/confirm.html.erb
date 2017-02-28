@@ -1,0 +1,28 @@
+<!--入力確認用フォームの宣言-->
+<div class="container">
+  <div class="col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1">
+    
+    <h3>以下の内容で送信する</h3>
+    
+    <%=form_for(@blog) do |f| %> 
+      <!-- `f.hidden_field`を使用して、リクエストパラメータに値を設定。 -->
+      <%= f.hidden_field :title %>
+      <%= f.hidden_field :content %>
+    
+      <!-- @blog.titleと@blog.contentとすることで、表示用の値を画面に出力 -->
+      <p>タイトル:<%= @blog.title %></p>
+      <p>本文:<%= @blog.content %></p>
+      <%= f.submit "登録する",class: 'btn btn-primary btn-block' %>
+    <% end %>
+    
+    <%= form_for(@blog, url: new_blog_path, method: 'get') do |f| %>
+      <%= f.hidden_field :title %>
+      <%= f.hidden_field :content %>
+      <%= f.submit "もどる", name:'back',class: 'btn btn-default btn-block'  %>
+    <% end %>
+    
+    <!--前のページへ戻る-->
+    <!--<%= link_to '戻る', :back %>-->
+  </div>
+</div>
+

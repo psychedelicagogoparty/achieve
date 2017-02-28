@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1">
+
+    <h3>以下の内容で送信する</h3>
+    
+    <!--確認用お問い合わせフォームの宣言-->
+    <%=form_for(@contact) do |f| %> 
+    
+      <!-- `f.hidden_field`を使用して、リクエストパラメータに値を設定。 -->
+      <%= f.hidden_field :name %>
+      <%= f.hidden_field :email %>
+      <%= f.hidden_field :content %>
+    
+      <!-- @contact.name,@contact.email,@contact.contentとすることで、表示用の値を画面に出力 -->
+      <p>氏名:<%= @contact.name %></p>
+      <p>Email:<%= @contact.email %></p>
+      <p>内容:<%= @contact.content %></p>
+      <%= f.submit "投稿する",class: 'btn btn-primary btn-block' %>
+    <% end %>
+    
+    <%= form_for(@contact, url: new_contact_path, method: 'get') do |f| %>
+      <%= f.hidden_field :name %>
+      <%= f.hidden_field :email %>
+      <%= f.hidden_field :content %>
+      <%= f.submit "もどる", name:'back' ,class: 'btn btn-primary btn-block'%>
+    <% end %> <!--formの終わりを宣言-->
+  </div>
+</div>
