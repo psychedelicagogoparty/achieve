@@ -26,7 +26,7 @@ class BlogsController < ApplicationController
     
     #user_idをカラムに代入する(current_userメソッドを使用する)
     @blog.user_id = current_user.id
-    @blog.user_name = current_user.name
+    #@name. = Blog.find(current_user.id)
     
     #バリデーション成否の確認
     if @blog.save  #成功時
