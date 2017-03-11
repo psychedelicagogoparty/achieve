@@ -1,4 +1,6 @@
 class BlogsController < ApplicationController
+  #ログインしていなければblogを使用できないようにする(Deviseのauthenticate_user!メソッドを使用)
+  before_action :authenticate_user!
   before_action :set_blog, only:[:edit, :update, :destroy] #共通のメソッドを事前呼び出し
   
   #すべてのブログを取得

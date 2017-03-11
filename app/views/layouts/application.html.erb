@@ -5,6 +5,7 @@
   <title>Achieve</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
   <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- スマホやタブレットで崩れないようにするために書く-->
   <%= csrf_meta_tags %>
 </head>
@@ -32,7 +33,16 @@
           <ul class="dropdown-menu">
             <li><%= link_to "ブログ", blogs_path %></li>
           </ul>
-        </li>
+          
+          <% if user_signed_in? %>　<!--ログインの確認deviseの[user_signed_in?]メソッドを利用し判定処理-->
+            <li><%= link_to 'マイページ', edit_user_registration_path %></li>
+            <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+          <% else %>
+            <li><%= link_to 'ログイン', new_user_session_path  %></li>
+            <li><%= link_to 'サインアップ', new_user_registration_path %></li>
+          <% end %>
+          
+          </li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
