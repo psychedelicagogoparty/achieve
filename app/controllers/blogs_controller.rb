@@ -23,6 +23,11 @@ class BlogsController < ApplicationController
   def create
     @blog = Blog.new(blogs_params)
     #Blog.create(blogs_params) #ストロングパラメータを引数に渡す
+    
+    #user_idをカラムに代入する(current_userメソッドを使用する)
+    @blog.user_id = current_user.id
+    @blog.user_name = current_user.name
+    
     #バリデーション成否の確認
     if @blog.save  #成功時
       redirect_to blogs_path,notice:"ブログを作成しました！" 
