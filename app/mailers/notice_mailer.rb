@@ -13,7 +13,7 @@ class NoticeMailer < ApplicationMailer
     @blog = blog
 
     #メール送信時に自分のアドレスに送信
-    mail to: "test@yahoo.co.jp",
+    mail to: "september_girl_friend@yahoo.co.jp",
      subject: '【Achieve】ブログが投稿されました'
   end
 
