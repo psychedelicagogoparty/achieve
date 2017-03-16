@@ -6,6 +6,7 @@ class BlogsController < ApplicationController
   #すべてのブログを取得
   def index
     @blogs = Blog.all
+    # binding.pry #ブレークポイントを仕込む
   end
 
   #新規作成

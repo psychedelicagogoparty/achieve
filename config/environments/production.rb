@@ -1,3 +1,4 @@
+ #本番環境用の設定ファイル
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 

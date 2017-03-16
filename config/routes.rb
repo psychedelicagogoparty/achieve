@@ -17,6 +17,9 @@ Rails.application.routes.draw do
     end
   end
 
+  #poemのルーティング
+  resources :poems, only: [:index, :show]
+
   #letter_openerの設定
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"

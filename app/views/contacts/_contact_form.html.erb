@@ -1,20 +1,7 @@
 <!--共通のお問い合わせフォームの宣言-->
-<%=form_for(@contact,url:confirm_contacts_path) do |f| %> 
-  
-  <% if @contact.errors.any? %> <!--エラー存在時に以下実行-->
-    <div id="error_explanation" >
-      <!-- バリデーションエラーの件数を表示-->
-      <h2><%= @contact.errors.count %>件のエラーがあります。</h2>
+<%=form_for(@contact,url:confirm_contacts_path) do |f| %>
 
-      <ul>
-       <!--@contact.errorsは@contactをバリデーションした際のエラー情報-->
-       <!--full_messagesは複数のエラーメッセージを表す-->
-      <% @contact.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= f.error_messages! %>
 
   <%= f.label :name %> <!--指定したモデルカラムへのラベルを作成-->
   <%= f.text_field :name,class: 'form-control' %> <!--指定したモデルカラムへbootstrapを用いてテキスト欄（フォーム）を作成-->
