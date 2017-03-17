@@ -1,5 +1,9 @@
-<%= @poems.each do |poem| %>
+<% @poems.each do |poem| %>
+  <br>
   <%= poem.title %>
+  <br>
   <%= poem.content %>
+  <br>
   <%= link_to "詳細", poem%>
+  <br>
 <% end %>
