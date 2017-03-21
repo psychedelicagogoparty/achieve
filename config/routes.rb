@@ -1,8 +1,15 @@
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  devise_for :users
   #get 'top/index'
   #get 'blogs' => 'blogs#index'
+
+  #認証方式ごとのルーティング(継承させるクラスを変更させる)
+  devise_for :users, controllers: {
+    # 通常の認証
+    registrations: "users/registrations",
+    # omiauth(Twitter,Facebook)での認証
+    omniauth_callbacks: "users/omniauth_callbacks"
+  }
 
 
   resources :blogs, only:[:index, :new , :create, :edit, :update, :destroy] do
@@ -19,6 +26,8 @@ Rails.application.routes.draw do
 
   #poemのルーティング
   resources :poems, only: [:index, :show]
+
+
 
   #letter_openerの設定
   if Rails.env.development?

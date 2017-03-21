@@ -47,7 +47,7 @@ group :development, :test do
   gem 'better_errors'
 
 end
-  
+
 gem 'twitter-bootstrap-rails'
 gem 'jquery-turbolinks'
 gem 'rails_12factor', group: :production
@@ -56,7 +56,15 @@ gem 'faker'
 gem 'rails_admin'
 gem 'activeresource'
 gem 'cancan' #adminカラムがtrueの場合管理画面にアクセスできるようにするライブラリ
+gem 'omniauth'
+gem 'omniauth-twitter'
+gem 'omniauth-facebook'
 gem 'her' #
+gem 'dotenv-rails' #環境変数化のライブラリ
+#画像のuploader
+gem 'carrierwave'
+gem "mini_magick"
+#gem 'rmagick'
 
 group :development do
   gem 'letter_opener_web'

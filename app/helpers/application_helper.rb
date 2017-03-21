@@ -1,4 +1,20 @@
 module ApplicationHelper
+
+  def profile_img(user)
+    #binding.pry
+    # 元々アップロードされていた画像を表示する
+    return image_tag(user.avatar, alt: user.name) if user.avatar?
+
+    unless user.provider.blank? #snsから取得した画像があるかどうか
+      img_url = user.image_url #ある場合はユーザーテーブルのimage_urlカラムを引っ張ってくる
+    else
+      img_url = 'no_image.png' #ない場合は適当な画像を割り当てる
+      # binding.pry
+    end
+
+    #アップロードした画像の表示
+    image_tag(img_url,alt:user.name)
+  end
 end
 
 module ActionView
