@@ -23,6 +23,18 @@ class ContactsController < ApplicationController
     def confirm
         @contact =Contact.new(contacts_params)
         render :new if @contact.invalid? #確認時にバリデーション実行
+
+
+        if @contact.invalid ?
+          #ifを中心に左の内容が正ならば左を実行
+          render :new if @contact.invalid? #確認時にバリデーション実行
+
+          # if @contact.invalid ?
+          #   render :new if @contact.invalid? #確認時にバリデーション実行
+          # end
+
+        end
+
     end
 
     private
@@ -31,6 +43,5 @@ class ContactsController < ApplicationController
     def contacts_params
       params.require(:contact).permit(:name, :email, :content) #paraｍsメソッドで取得した中でcontentに関してname,email,contentだけを許可する
     end
-
 
 end

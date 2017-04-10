@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   }
 
 
-  resources :blogs, only:[:index, :new , :create, :edit, :update, :destroy] do
+  resources :blogs, only:[:index, :new , :create, :edit, :update, :destroy, :show] do
     collection do
       post :confirm
     end
@@ -20,6 +20,15 @@ Rails.application.routes.draw do
 
   resources :contacts, only:[:new, :create] do
   collection do
+      post :confirm
+    end
+  end
+
+  #ブログ内のコメントへのルーティング
+  resources :blogs do
+    resources :comments #ネスト(入れこ)している(/blogs/:blog_id/commentsとなる)
+
+    collection do
       post :confirm
     end
   end

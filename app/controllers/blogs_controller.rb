@@ -1,12 +1,18 @@
 class BlogsController < ApplicationController
   #ログインしていなければblogを使用できないようにする(Deviseのauthenticate_user!メソッドを使用)
   before_action :authenticate_user!
-  before_action :set_blog, only:[:edit, :update, :destroy] #共通のメソッドを事前呼び出し
+  before_action :set_blog, only:[:show, :edit, :update, :destroy] #共通のメソッドを事前呼び出し
 
   #すべてのブログを取得
   def index
     @blogs = Blog.all
     # binding.pry #ブレークポイントを仕込む
+  end
+
+  #showアクションの定義：コメントの入力フォームと一覧を表示するためインスタンスを2つ生成
+  def show
+    @comment = @blog.comments.build
+    @comments = @blog.comments
   end
 
   #新規作成
@@ -45,7 +51,6 @@ class BlogsController < ApplicationController
   #既存ブログを編集
   #編集する内容の入力
   def edit
-
   end
 
   #編集した内容で更新する

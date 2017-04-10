@@ -1,0 +1,4 @@
+// blogs/show.html.erbでid=comments_areaと定義した箇所を書き換えるjQuery
+$("#comments_area").html("<%= j(render 'comments/index', { comments: @comment.blog.comments, blog: @comment.blog }) %>")
+// 入力フォームの内容をクリア
+$(':text').val('')

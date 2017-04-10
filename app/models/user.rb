@@ -1,6 +1,10 @@
 class User < ActiveRecord::Base
-  #以下のメソッドhas_many :hoges により子モデル（hoge）が複数紐づくアソシエーションを定義
-  has_many :blogs
+  #以下のメソッドhas_many :blogs により子モデル（blog）が複数紐づくアソシエーションを定義
+  has_many :blogs,dependent: :destroy
+
+  # CommentモデルのAssociationを設定
+  has_many :comments, dependent: :destroy
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
