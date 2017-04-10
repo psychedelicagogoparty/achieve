@@ -30,7 +30,8 @@ class ContactsController < ApplicationController
 
           # if @contact.invalid ?
           #   render :new if @contact.invalid? #確認時にバリデーション実行
-          # end
+          # end mm
+
 
     end
 
