@@ -24,16 +24,13 @@ class ContactsController < ApplicationController
         @contact =Contact.new(contacts_params)
         render :new if @contact.invalid? #確認時にバリデーション実行
 
-
-        if @contact.invalid ?
-          #ifを中心に左の内容が正ならば左を実行
-          render :new if @contact.invalid? #確認時にバリデーション実行
+      　  # if @contact.invalid ?
+          #ifを中心に右辺の内容が正ならば左辺を実行
+          # render　:new if @contact.invalid? #確認時にバリデーション実行
 
           # if @contact.invalid ?
           #   render :new if @contact.invalid? #確認時にバリデーション実行
           # end
-
-        end
 
     end
 
