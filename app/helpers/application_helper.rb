@@ -3,7 +3,7 @@ module ApplicationHelper
   def profile_img(user)
     # binding.pry
     # carrierwaveでアップロードした画像を表示させる
-    return image_tag(user.avatar,alt: user.name, class:"profile") if user.avatar?
+    return image_tag(user.avatar,alt: user.name, class:"profile", width:"100%") if user.avatar?
 
     unless user.provider.blank? #snsから取得した画像があるかどうか
       img_url = user.image_url #ある場合はユーザーテーブルのimage_urlカラムを引っ張ってくる
@@ -15,7 +15,7 @@ module ApplicationHelper
 
     # user.avatar = img_url
     #アップロードした画像の表示
-    image_tag(img_url, alt:user.name, class:"profile")
+    image_tag(img_url, alt:user.name, class:"profile", :size => "300×300")
   end
 
 end

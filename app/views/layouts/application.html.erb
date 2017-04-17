@@ -10,7 +10,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  
+
 <header>
  <nav class="navbar navbar-default">
   <div class="container-fluid">
@@ -32,8 +32,9 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><%= link_to "ブログ", blogs_path %></li>
+            <li><%= link_to 'ユーザー一覧', users_path if user_signed_in? %></li>
           </ul>
-          
+
           <% if user_signed_in? %>　<!--ログインの確認deviseの[user_signed_in?]メソッドを利用し判定処理-->
             <li><%= link_to 'マイページ', edit_user_registration_path %></li>
             <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
@@ -41,14 +42,14 @@
             <li><%= link_to 'ログイン', new_user_session_path  %></li>
             <li><%= link_to 'サインアップ', new_user_registration_path %></li>
           <% end %>
-          
+
           </li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
  </nav>
 </header>
-    
+
 
 <%= yield %>
 
@@ -57,6 +58,6 @@
   <p>運営会社DIVE INTO CODE株式会社</p>
   <p>© 2015-2016 Copyright DIVE INTO CODE Corp.</p>
 </footer>
-    
+
 </body>
 </html>

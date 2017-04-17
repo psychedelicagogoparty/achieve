@@ -5,6 +5,15 @@ class User < ActiveRecord::Base
   # CommentモデルのAssociationを設定
   has_many :comments, dependent: :destroy
 
+  # 相互フォローの設定
+  # usersテーブルのidカラムと参照関係を持つカラムを「follower_id」カラムであると定義
+  has_many :relationships,foreign_key: "follower_id", dependent: :destroy
+  #reverse_relationshipsというアソシエーションを定義します。
+  has_many :reverse_relationships,foreign_key: "followed_id", class_name: "Relationship", dependent: :destroy
+
+  has_many :followed_users, through: :relationships, source: :followed
+  has_many :followers, through: :reverse_relationships, source: :follower
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -12,6 +21,21 @@ class User < ActiveRecord::Base
          :omniauthable
 
   mount_uploader :avatar,AvatarUploader
+
+  #指定のユーザをフォローする
+  def follow!(other_user)
+    relationships.create!(followed_id: other_user.id)
+  end
+
+  #フォローしているかどうかを確認する
+  def following?(other_user)
+    relationships.find_by(followed_id: other_user.id)
+  end
+
+  #指定のユーザのフォローを解除する
+  def unfollow!(other_user)
+    relationships.find_by(followed_id: other_user.id).destroy
+  end
 
   #facebook用
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
