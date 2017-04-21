@@ -1,7 +1,7 @@
 <div class="container-child col-md-2 col-sm-4 col-xs-6 ">
   <p>フォローされているユーザー</p>
   <% @followers.each do |follower| %>
-  <!-- <%#= profile_img(user) %> -->
+  <%= profile_img(follower) %>
   <!-- フォロワーの表示　-->
   <%= follower.name %>
   <!-- フォローしたユーザーの表示 -->
@@ -13,7 +13,7 @@
 <div class="container-child col-md-2 col-sm-4 col-xs-6 ">
   <p>フォローしているユーザー</p>
   <% @followed_users.each do |followed_user| %>
-  <!-- <%#= profile_img(user) %> -->
+  <%= profile_img(followed_user) %>
   <!-- フォロワーの表示　-->
   <%= followed_user.name %>
   <!-- フォローしたユーザーの表示 -->

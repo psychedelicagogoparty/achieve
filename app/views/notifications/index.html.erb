@@ -1,0 +1,22 @@
+<div class="child row">
+  <div class= "wrapper col-md-8 col-md-offset-2 col-sm-10">
+    <h2>お知らせ</h2>
+    <div class="ui segment">
+        <% @notifications.each do |notification| %>
+          <div class="comments_area">
+              <% unless notification.read %>
+                <p>未読</p>
+              <% else %>
+                <p>既読</p>
+              <% end %>
+            <p>
+              <%= notification.comment.user.try(:name) %>さんが
+              <!-- あなたのブログ（<%= notification.comment.blog.title %>）にコメントしました。 -->
+              あなたのブログ(<%= link_to "#{notification.comment.blog.title}", blog_path(notification.comment.blog, notification_id: notification.id) %>）にコメントしました。
+            </p>
+            <p><%= notification.created_at %></p>
+          </div>
+        <% end %>
+    </div>
+  </div>
+</div>

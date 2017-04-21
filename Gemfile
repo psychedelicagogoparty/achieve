@@ -60,6 +60,7 @@ gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 gem 'her' #
+gem 'pusher' 
 gem 'dotenv-rails' #環境変数化のライブラリ
 #画像のuploader
 gem 'carrierwave'
