@@ -61,4 +61,4 @@
 #   }
 
 server '54.64.231.50', user: 'app', roles: %w{app db web}
-set :ssh_options, keys: '/Users/yosi/.ssh/id_rsa.pub'
+set :ssh_options, keys: '/Users/yosi/.ssh/id_rsa'
