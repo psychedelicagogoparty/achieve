@@ -27,7 +27,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use Unicorn as the app server
-# gem 'unicorn'
+gem 'unicorn'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -63,6 +63,9 @@ gem 'her' #
 gem 'pusher'
 gem 'dotenv-rails' #環境変数化のライブラリ
 gem 'fog'
+gem 'therubyracer', platforms: :ruby
+
+
 #画像のuploader
 gem 'carrierwave'
 gem "mini_magick"
@@ -70,5 +73,9 @@ gem "mini_magick"
 
 group :development do
   gem 'letter_opener_web'
-
+  gem 'capistrano', '3.6.0'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
+  gem 'capistrano3-unicorn'
 end
