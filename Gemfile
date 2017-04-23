@@ -60,8 +60,9 @@ gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 gem 'her' #
-gem 'pusher' 
+gem 'pusher'
 gem 'dotenv-rails' #環境変数化のライブラリ
+gem 'fog'
 #画像のuploader
 gem 'carrierwave'
 gem "mini_magick"
