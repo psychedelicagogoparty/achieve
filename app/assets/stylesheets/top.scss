@@ -13,7 +13,7 @@
 // header ul {
 //     margin:0 auto;
 //     list-style: none;
-    
+
 // }
 
 // header ul a {
@@ -87,7 +87,7 @@
   padding-bottom: 15%;
   width: 100%;
   background-size: cover;
-  background-image: url("header.jpg");
+  background-image: image-url("header.jpg");
   background-attachment: fixed;
 }
 
@@ -102,7 +102,7 @@
     background-color: white;
     color:#333;
     padding: 80px;
-    
+
 }
 
 .function {
@@ -160,9 +160,9 @@ footer {
       line-height: 60px;
       text-decoration: none;
     }
-    
+
    &:hover{
-   opacity: 0.7; 
+   opacity: 0.7;
   }
 }
 
