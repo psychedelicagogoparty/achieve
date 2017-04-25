@@ -78,7 +78,8 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-config.action_mailer.default_url_options = {host: 'https://floating-caverns-78232.herokuapp.com'}
+# config.action_mailer.default_url_options = {host: 'https://floating-caverns-78232.herokuapp.com'} heroku用
+config.action_mailer.default_url_options = {host: 'http://54.64.231.50/'}
 ActionMailer::Base.delivery_method = :smtp
 ActionMailer::Base.smtp_settings =
   {
