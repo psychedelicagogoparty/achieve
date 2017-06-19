@@ -4,6 +4,7 @@ class CommentsController < ApplicationController
   def create
     #ログインしているユーザーに紐付けてインスタンスを生成する（buildメソッドを使用する）
     @comment = current_user.comments.build(comment_params)
+    # binding.pry
     @blog = @comment.blog
     @notification = @comment.notifications.build(user_id: @blog.user.id )
 
@@ -16,7 +17,7 @@ class CommentsController < ApplicationController
           message: 'あなたの作成したブログにコメントが付きました'
         })
        end
-       
+
         Pusher.trigger("user_#{@comment.blog.user_id}_channel", 'notification_created', {
             unread_counts: Notification.where(user_id: @comment.blog.user.id, read: false).count
         })
