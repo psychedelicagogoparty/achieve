@@ -42,9 +42,7 @@ group :development, :test do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 
-  #下2つはデバッグ用のパッケージ
-  gem 'pry-rails'
-  gem 'better_errors'
+
 
   gem "rspec-rails"
   gem "factory_girl_rails"
@@ -91,4 +89,8 @@ group :development do
   gem 'capistrano-rails'
   gem 'capistrano-rbenv'
   gem 'capistrano3-unicorn'
+  #下3つはデバッグ用のパッケージ
+  gem 'pry-rails'
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
